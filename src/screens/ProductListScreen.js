@@ -26,10 +26,12 @@ const ProductListScreen = ({ navigation }) => {
 
   useEffect(() => {
     fetchProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     filterProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchQuery, products]);
 
   const fetchProducts = async () => {

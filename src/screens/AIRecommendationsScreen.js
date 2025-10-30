@@ -23,6 +23,7 @@ const AIRecommendationsScreen = ({ navigation }) => {
 
   useEffect(() => {
     fetchProductsAndRecommendations();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cartItems]);
 
   const fetchProductsAndRecommendations = async () => {

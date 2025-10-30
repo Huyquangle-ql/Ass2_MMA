@@ -12,8 +12,8 @@ import { useCart } from '../hooks/useCart';
 const CheckoutSuccessScreen = ({ navigation, route }) => {
   const { clearCart } = useCart();
   const { orderTotal, itemCount } = route.params || {};
-  const scaleAnim = new Animated.Value(0);
-  const fadeAnim = new Animated.Value(0);
+  const scaleAnim = React.useRef(new Animated.Value(0)).current;
+  const fadeAnim = React.useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     // Clear cart after successful checkout
@@ -33,7 +33,7 @@ const CheckoutSuccessScreen = ({ navigation, route }) => {
         useNativeDriver: true,
       }),
     ]).start();
-  }, []);
+  }, [clearCart, scaleAnim, fadeAnim]);
 
   const handleContinueShopping = () => {
     navigation.navigate('ProductList');
